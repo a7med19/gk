@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .login-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px;
+            border-radius: 5px;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="login-form" onsubmit="return handleLogin()">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+            <p class="signup-link">Don't have an account? <a href="signup.html">Sign up</a></p>
+        </form>
+    </div>
+    <div id="login-message" class="login-message">Login successful!</div>
+
+    <script>
+        function handleLogin() {
+            // عمليات التحقق من صحة بيانات الدخول هنا
+
+            // هنا يمكنك التحقق من صحة بيانات الدخول، وفي حالة نجاحها يتم تحويل المستخدم إلى صفحة المحتوى المحمي
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            // هنا يمكنك تنفيذ عمليات التحقق من صحة بيانات الدخول، مثلاً عن طريق استعلام قاعدة البيانات أو بواسطة خوادم الويب أو غيرها
+
+            // لغرض التوضيح فقط، نفترض أن عملية تسجيل الدخول ناجحة دائمًا
+            document.getElementById("login-message").style.display = "block"; // إظهار رسالة تم تسجيل الدخول
+            setTimeout(function() {
+                window.location.href = "home.html"; // تحويل المستخدم إلى صفحة المحتوى المحمي بعد فترة زمنية معينة
+            }, 2000); // بعد مرور 2 ثانية
+            return false; // منع النموذج من الإرسال
+        }
+    </script>
+</body>
+</html>
